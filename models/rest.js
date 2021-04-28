@@ -21,7 +21,7 @@ const restSchema = new Schema({
     require: true
   },
 
-  Image: {
+  image: {
     type: String,
     require: true
   },
@@ -32,7 +32,7 @@ const restSchema = new Schema({
   },
 
   phone: {
-    type: Number,
+    type: String,
     require: true
   },
 
