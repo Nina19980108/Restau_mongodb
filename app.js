@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
+const Restau = require('./models/rest')
 
 const app = express()
 const port = 3000
@@ -20,7 +21,10 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Restau.find()
+    .lean()
+    .then(Restau => res.render('index', { Restau }))
+    .catch(error => console.error(error))
 })
 
 app.listen(port, () => {
