@@ -28,8 +28,8 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-//新增頁面
-app.get('/restaurants/new', (req, res) => {
+//瀏覽新增頁面
+app.get('/restaurant/new', (req, res) => {
   res.render('new')
 })
 
@@ -40,6 +40,11 @@ app.get('/restaurants/:id', (req, res) => {
     .lean()
     .then(Restau => res.render('show', { Restau }))
     .catch(error => console.error(error))
+})
+
+//新增餐廳
+app.post('/restaurant/new', (req, res) => {
+  res.render('new')
 })
 
 //搜尋
