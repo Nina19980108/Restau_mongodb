@@ -36,7 +36,7 @@ app.get('/restaurant/new', (req, res) => {
 })
 
 //瀏覽特定頁面
-app.get('/restaurants/:id', (req, res) => {
+app.get('/restaurant/:id', (req, res) => {
   const id = req.params.id
   return Restau.findById(id)
     .lean()
@@ -60,6 +60,15 @@ app.post('/restaurant/new', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 
+})
+
+//刪除
+app.post('/restaurant/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restau.findById(id)
+    .then(rest => rest.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
 })
 
 //搜尋
