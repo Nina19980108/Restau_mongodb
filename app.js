@@ -27,6 +27,15 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+app.get('/restaurants/:id', (req, res) => {
+  const Id = req.params.id
+  console.log(Id)
+  return Restau.find({ id: Id })
+    .lean()
+    .then(Restau => res.render('show', { Restau }))
+    .catch(error => console.error(error))
+})
+
 app.listen(port, () => {
   console.log('connect!')
 })
