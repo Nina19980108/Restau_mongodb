@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const Restau = require('./models/rest')
+const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3000
@@ -19,6 +20,7 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //首頁
 app.get('/', (req, res) => {
@@ -44,6 +46,7 @@ app.get('/restaurants/:id', (req, res) => {
 
 //新增餐廳
 app.post('/restaurant/new', (req, res) => {
+  console.log(req.body)
   res.render('new')
 })
 
