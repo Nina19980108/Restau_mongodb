@@ -20,6 +20,7 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
+//首頁
 app.get('/', (req, res) => {
   Restau.find()
     .lean()
@@ -27,6 +28,12 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//新增頁面
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
+})
+
+//瀏覽特定頁面
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restau.findById(id)
@@ -34,6 +41,11 @@ app.get('/restaurants/:id', (req, res) => {
     .then(Restau => res.render('show', { Restau }))
     .catch(error => console.error(error))
 })
+
+//搜尋
+
+
+
 
 app.listen(port, () => {
   console.log('connect!')
