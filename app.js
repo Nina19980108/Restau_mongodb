@@ -71,6 +71,17 @@ app.post('/restaurant/:id/delete', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//瀏覽修改頁面
+app.get('/restaurant/update/:id', (req, res) => {
+  const id = req.params.id
+  return Restau.findById(id)
+    .lean()
+    .then(Restau => res.render('update', { Restau }))
+    .catch(error => console.error(error))
+})
+
+//修改
+
 //搜尋
 
 

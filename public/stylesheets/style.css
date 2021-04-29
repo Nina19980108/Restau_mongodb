@@ -113,3 +113,7 @@ header {
   border-radius: 10px;
   color: #11191d;
 }
+
+.update-btn, .delete-btn {
+  width: 280px;
+}
