@@ -43,6 +43,13 @@
         {{#each Restau }}
         <a href="/restaurants/{{_id}}" class="text-secondary">
           <div class="card mb-3">
+
+            <div class="card-header remove-restau">
+              <form action="./restaurant/{{ this._id }}/delete" method="post">
+                <i class="fas fa-times"></i>
+              </form>
+            </div>
+
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>

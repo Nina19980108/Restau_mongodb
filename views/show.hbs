@@ -51,6 +51,10 @@
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{ Restau.image }}" alt="{{ Restau.name }}"
         style="max-width: 600px;">
+
+      <form class="d-flex justify-content-center my-5" action="./restaurant/{{ Restau._id }}/delete" method="post">
+        <button class="btn btn-danger w-25">刪除餐廳</button>
+      </form>
     </div>
   </div>
 </div>
