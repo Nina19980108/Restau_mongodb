@@ -28,9 +28,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/restaurants/:id', (req, res) => {
-  const Id = req.params.id
-  console.log(Id)
-  return Restau.find({ id: Id })
+  const id = req.params.id
+  return Restau.findById(id)
     .lean()
     .then(Restau => res.render('show', { Restau }))
     .catch(error => console.error(error))
