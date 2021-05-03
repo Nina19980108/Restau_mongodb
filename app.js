@@ -81,6 +81,32 @@ app.get('/restaurant/update/:id', (req, res) => {
 })
 
 //修改
+app.post('/restaurant/update/:id', (req, res) => {
+  const id = req.params.id
+  const name = req.body.name
+  const name_en = req.body.name_en
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const google_map = req.body.google_map
+  const phone = req.body.phone
+  const description = req.body.description
+  return Restau.findById(id)
+    .then(rest => {
+      rest.name = name
+      rest.name_en = name_en
+      rest.category = category
+      rest.image = image
+      rest.location = location
+      rest.google_map = google_map
+      rest.phone = phone
+      rest.description = description
+      return rest.save()
+    })
+    .then(() => res.redirect(`/restaurant/${id}`))
+    .catch(error => console.error(error))
+
+})
 
 //搜尋
 

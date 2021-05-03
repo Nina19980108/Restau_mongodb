@@ -4,7 +4,7 @@
     <div class="container">
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
-          width="30" height="30" class="d-inline-block align-top" alt="好。吃">
+          width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
     </div>
@@ -13,57 +13,71 @@
   <div class="banner"></div>
 </header>
 
-<h1 class="mb-1 restaurant-show-title">{{ Restau.name }}</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-10 mx-auto">
+<div class="container create-restaurant">
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          類別：
-        </span>
-        {{ Restau.category }}
-      </p>
+  <form action="/restaurant/update/{{ Restau._id }}" method="POST">
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <i class="fas fa-map-marker-alt pr-2"></i>
-          地址：
-        </span>
-        {{ Restau.location }}
-        <a href="{{ Restau.google_map }}v" class="text-secondary" target="_blank">
-          <i class="fas fa-location-arrow pr-2 fa-xs"></i>
-        </a>
-      </p>
-
-      <p class="mb-1">
-        <span class="text-secondary">
-          <i class="fas fa-mobile-alt pr-2"></i>
-          電話：
-        </span>
-        {{ Restau.phone }}
-      </p>
-
-      <p class="mb-5">
-        {{ Restau.description }}
-      </p>
-
-      <img class="rounded mx-auto d-block mb-4 w-100" src="{{ Restau.image }}" alt="{{ Restau.name }}"
-        style="max-width: 600px;">
-
-      <div class="d-flex justify-content-center">
-
-        <form class="" action="/restaurant/update/{{ Restau._id }}" method="get">
-          <button class="update-btn btn btn-info m-3">修改內容</button>
-        </form>
-
-        <form class="" action="/restaurant/{{ Restau._id }}/delete" method="post">
-          <button class="delete-btn btn btn-danger m-3">刪除餐廳</button>
-        </form>
-
-      </div>
-
+    {{!-- 餐廳名稱 --}}
+    <div class="mb-3">
+      <label for="name" class="form-label">餐廳名稱</label>
+      <input type="text" class="form-control" value="{{ Restau.name }}" id="name" name="name" aria-describedby="name"
+        required>
+      {{!-- <div id="name" class="form-text">We'll never share your email with anyone else.</div> --}}
     </div>
-  </div>
+
+    {{!-- 餐廳英文名稱 --}}
+    <div class="mb-3">
+      <label for="name_en" class="form-label">餐廳英文名稱</label>
+      <input type="text" class="form-control" value="{{ Restau.name_en }}" name="name_en" id="name_en" required>
+    </div>
+
+    {{!-- 類別 --}}
+    <div class="mb-3">
+      <label for="category">類別</label>
+      <input list="categories" class="form-control" value="{{ Restau.category }}" name="category" id="category"
+        required>
+      <datalist id="categories">
+        <option>中東料理</option>
+        <option>日本料理</option>
+        <option>義式餐廳</option>
+        <option>美式</option>
+        <option>酒吧</option>
+        <option>咖啡</option>
+      </datalist>
+    </div>
+
+    {{!-- 照片網址 --}}
+    <div class="mb-3">
+      <label for="image" class="form-label">圖片網址</label>
+      <input type="text" class="form-control" value="{{ Restau.image }}" name="image" id="image" required>
+    </div>
+
+    {{!-- 地址 --}}
+    <div class="mb-3">
+      <label for="location" class="form-label">地址</label>
+      <input type="text" class="form-control" value="{{ Restau.location }}" name="location" id="location" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="google_map" class="form-label">goole map 網址</label>
+      <input type="text" class="form-control" value="{{ Restau.google_map }}" name="google_map" id="google_map"
+        required>
+    </div>
+
+    {{!-- 電話 --}}
+    <div class="mb-3">
+      <label for="phone" class="form-label">電話</label>
+      <input type="text" class="form-control" value="{{ Restau.phone }}" name="phone" id="phone" required>
+    </div>
+
+    {{!-- 簡介 --}}
+    <div class="mb-3">
+      <label for="description" class="form-label">簡介</label>
+      <textarea type="text" class="form-control" name="description" id="description">{{ Restau.description }}</textarea>
+    </div>
+
+    {{!-- 儲存 --}}
+    <button type="submit" class="btn btn-info">儲存修改</button>
+  </form>
+
 </div>
