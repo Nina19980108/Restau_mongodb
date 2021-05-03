@@ -19,13 +19,13 @@
 1. 打開你的 terminal，Clone 此專案至本機電腦
 
 ```
-git clone https://github.com/pierceshih15/restaurantList.git
+git clone https://github.com/Nina19980108/Restau_mongodb.git
 ```
 
 2. 開啟終端機(Terminal)，進入存放此專案的資料夾
 
 ```
-cd restaurantList
+cd restaurant_mongodb
 ```
 
 3. 安裝 npm 套件
@@ -43,9 +43,9 @@ cd restaurantList
 5. 匯入種子檔案
 
 ```
-在 Terminal 找到 Seeder.js 檔案
+在 Terminal 找到 rest.js 檔案
 
-執行 node models/seeds/Seeder.js 匯入使用者與餐廳資料
+執行 node models/seeds/rest.js 匯入使用者與餐廳資料
 ```
 
 當 terminal 出現以下字樣，即表示種子資料已新增至資料庫，按下 ctrl + c 結束執行
@@ -53,7 +53,7 @@ cd restaurantList
 ```
 Mongodb is connected!
 
-User and Restaurant data get done!
+done!
 ```
 
 6. 啟動伺服器，執行 app.js 檔案
