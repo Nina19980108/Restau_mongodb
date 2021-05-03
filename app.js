@@ -114,5 +114,5 @@ app.post('/restaurant/update/:id', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log('connect!')
+  console.log('Restaurant list is on http://localhost:3000')
 })
