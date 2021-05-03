@@ -43,9 +43,9 @@ cd restaurant_mongodb
 5. 匯入種子檔案
 
 ```
-在 Terminal 找到 rest.js 檔案
+在 Terminal 找到 restSeeder.js 檔案
 
-執行 node models/seeds/rest.js 匯入使用者與餐廳資料
+執行 node models/seeds/restSeeder.js 匯入使用者與餐廳資料
 ```
 
 當 terminal 出現以下字樣，即表示種子資料已新增至資料庫，按下 ctrl + c 結束執行
